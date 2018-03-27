@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Customer" representedClassName="Customer" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="reservations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reservation" inverseName="customer" inverseEntity="Reservation" syncable="YES"/>
+    </entity>
+    <entity name="Hotel" representedClassName="Hotel" syncable="YES">
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="reservations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reservation" inverseName="hotel" inverseEntity="Reservation" syncable="YES"/>
+    </entity>
+    <entity name="Reservation" representedClassName="Reservation" syncable="YES">
+        <attribute name="confirmed" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="days" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="customer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Customer" inverseName="reservations" inverseEntity="Customer" syncable="YES"/>
+        <relationship name="hotel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Hotel" inverseName="reservations" inverseEntity="Hotel" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Customer" positionX="7" positionY="-18" width="128" height="75"/>
+        <element name="Hotel" positionX="-396" positionY="-27" width="128" height="90"/>
+        <element name="Reservation" positionX="-200" positionY="45" width="128" height="118"/>
+    </elements>
+</model>
